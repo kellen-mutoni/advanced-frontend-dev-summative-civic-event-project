@@ -50,7 +50,7 @@ function renderNavbar() {
     <header id="navbar" class="bg-black">
       <nav class="mx-auto max-w-6xl px-6 py-4 md:flex md:items-center md:justify-between" aria-label="Main">
         <div class="flex items-center justify-between">
-          <a href="${home}"><img src="../img/logo.png" alt="Eventcon home" class="h-8"></a>
+          <a href="${home}" class="font-heading text-2xl uppercase text-white">CivicEvents<span class="text-brand" aria-hidden="true">.</span></a>
           <button id="menu-btn" type="button" class="text-2xl text-white md:hidden" aria-label="Toggle menu" aria-controls="menu" aria-expanded="false"><span aria-hidden="true">☰</span></button>
         </div>
         <ul id="menu" class="mt-4 hidden flex-col gap-4 md:mt-0 md:flex md:flex-row md:items-center md:gap-6">
@@ -70,7 +70,7 @@ function renderFooter() {
     <footer id="footer" class="bg-black px-6 py-10 text-gray-300">
       <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
         <section>
-          <img src="../img/footer_logo.png" alt="Eventcon" class="h-8">
+          <p class="font-heading text-2xl uppercase text-white">CivicEvents<span class="text-brand" aria-hidden="true">.</span></p>
           <p class="mt-3 text-sm">Accessible city events and services for everyone.</p>
         </section>
         <nav aria-labelledby="footer-links">
@@ -117,4 +117,9 @@ $(document).on("submit", "#search-form", function (e) {
   e.preventDefault();
   const term = $("#search-input").val().trim();
   window.location.href = "events.html?search=" + encodeURIComponent(term);
+});
+
+$(function () {
+  renderNavbar();
+  renderFooter();
 });
