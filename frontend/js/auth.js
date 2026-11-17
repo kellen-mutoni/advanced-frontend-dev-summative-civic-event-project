@@ -17,3 +17,20 @@ function clearSession() {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
 }
+
+// Role guard: a visitor who is not logged in is sent to the login page
+function requireLogin() {
+  if (!getToken()) {
+    window.location.replace("login.html");
+  }
+}
+
+// Role guard: only admins can stay on a page that calls this
+// Normal users are sent to the events page. The backend checks the role too, this is only for the UI
+function requireAdmin() {
+  requireLogin();
+  const user = getUser();
+  if (user && user.role !== "admin") {
+    window.location.replace("events.html");
+  }
+}
