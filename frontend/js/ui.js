@@ -17,3 +17,20 @@ function showToast(message, type = "success") {
     toast.remove();
   }, 4000);
 }
+
+function escapeHtml(text) {
+  return String(text ?? "").replace(/[&<>"']/g, function (character) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character];
+  });
+}
+
+function formatDate(isoString) {
+  if (!isoString) return "Date to be announced";
+  return new Date(isoString).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
+}
+
+function errorMessage(xhr) {
+  if (xhr.status === 403) return "You do not have permission to do this. Please contact an admin.";
+  if (xhr.responseJSON && xhr.responseJSON.message) return xhr.responseJSON.message;
+  return "Cannot reach the server. Check your connection and try again.";
+}
