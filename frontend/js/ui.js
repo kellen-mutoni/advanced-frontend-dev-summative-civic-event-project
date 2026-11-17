@@ -34,3 +34,7 @@ function errorMessage(xhr) {
   if (xhr.responseJSON && xhr.responseJSON.message) return xhr.responseJSON.message;
   return "Cannot reach the server. Check your connection and try again.";
 }
+
+function showFormError(message) {
+  $("#form-error").text(message).removeClass("hidden");
+}
