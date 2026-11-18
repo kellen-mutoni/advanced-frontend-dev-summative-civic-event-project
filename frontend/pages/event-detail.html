@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event | CivicEvents</title>
+  <link rel="icon" href="../img/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind-config.js"></script>
+</head>
+<body class="flex min-h-screen flex-col bg-neutral-950 font-body text-white">
+  <header id="navbar"></header>
+
+  <main id="main" class="mx-auto w-full max-w-4xl flex-1 px-6 py-12">
+    <p><a href="events.html" class="text-sm text-brand underline"><span aria-hidden="true">&larr;</span> Back to events</a></p>
+
+    <p id="load-error" role="alert" class="mt-6 hidden bg-red-900 px-4 py-3 text-sm">
+      <span id="error-text"></span>
+      <button id="retry-btn" type="button" class="ml-3 underline">Try again</button>
+    </p>
+
+    <p id="skeleton" class="mt-6 h-96 animate-pulse bg-neutral-800" aria-hidden="true"></p>
+
+    <article id="event" class="mt-6 hidden">
+      <img id="event-image" alt="" class="hidden h-72 w-full object-cover">
+      <h1 id="event-title" class="mt-6 font-heading text-4xl uppercase"></h1>
+      <p class="mt-2 text-brand"><time id="event-start"></time> &ndash; <time id="event-end"></time></p>
+      <p id="event-where" class="mt-1 text-gray-300"></p>
+      <p class="mt-1"><a id="map-link" target="_blank" rel="noopener" class="hidden text-sm underline">View on map<span class="sr-only"> (opens in a new tab)</span></a></p>
+      <p id="event-description" class="mt-6 whitespace-pre-line text-gray-200"></p>
+
+      <p class="mt-8 flex flex-wrap items-center gap-4">
+        <button id="register-btn" type="button" class="hidden bg-brand-dark px-6 py-3 text-sm font-bold uppercase text-white">Register</button>
+        <span id="registered-badge" class="hidden text-sm font-bold text-green-400"><span aria-hidden="true">✓</span> You are registered</span>
+        <button id="cancel-btn" type="button" class="hidden border border-gray-500 px-6 py-3 text-sm uppercase text-white">Cancel registration</button>
+        <a id="edit-link" class="hidden border border-gray-500 px-6 py-3 text-sm uppercase text-white">Edit event</a>
+      </p>
+    </article>
+
+    <section id="feedback" class="mt-12" aria-labelledby="feedback-title">
+      <h2 id="feedback-title" class="font-heading text-2xl uppercase">Feedback</h2>
+      <p id="average-rating" class="mt-2 hidden text-gray-300"></p>
+
+      <form id="feedback-form" class="mt-6 hidden space-y-4" novalidate>
+        <p id="form-error" role="alert" class="hidden bg-red-900 px-4 py-3 text-sm"></p>
+        <p>
+          <label for="rating" class="block text-sm font-bold">Your rating</label>
+          <select id="rating" class="mt-1 w-full bg-neutral-800 px-3 py-2 text-white">
+            <option value="">Choose a rating</option>
+            <option value="5">5 – Excellent</option>
+            <option value="4">4 – Good</option>
+            <option value="3">3 – Okay</option>
+            <option value="2">2 – Poor</option>
+            <option value="1">1 – Very poor</option>
+          </select>
+        </p>
+        <p>
+          <label for="comment" class="block text-sm font-bold">Comment</label>
+          <textarea id="comment" rows="3" class="mt-1 w-full bg-neutral-800 px-3 py-2 text-white"></textarea>
+        </p>
+        <button id="feedback-btn" type="submit" class="bg-brand-dark px-6 py-3 text-sm font-bold uppercase text-white">Submit feedback</button>
+      </form>
+
+      <ul id="feedback-list" class="mt-6 space-y-4"></ul>
+      <p id="feedback-empty" class="mt-6 hidden text-gray-300">No feedback yet.</p>
+    </section>
+
+    <section id="attendees" class="mt-12 hidden" aria-labelledby="attendees-title">
+      <h2 id="attendees-title" class="font-heading text-2xl uppercase">Registered attendees</h2>
+      <ul id="attendees-list" class="mt-4 space-y-2 text-sm"></ul>
+      <p id="attendees-empty" class="mt-4 hidden text-gray-300">No one has registered yet.</p>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/event-detail.js"></script>
+</body>
+</html>
