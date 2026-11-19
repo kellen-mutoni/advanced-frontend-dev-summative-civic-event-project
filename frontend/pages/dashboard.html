@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | CivicEvents</title>
+  <link rel="icon" href="../img/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind-config.js"></script>
+</head>
+<body class="flex min-h-screen flex-col bg-neutral-950 font-body text-white">
+  <header id="navbar"></header>
+
+  <main id="main" class="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-8 px-6 py-12 md:flex-row">
+    <aside class="md:w-48 md:shrink-0">
+      <nav aria-label="Admin sections">
+        <ul id="admin-nav" class="flex flex-wrap gap-x-6 gap-y-2 md:flex-col"></ul>
+      </nav>
+    </aside>
+
+    <section class="min-w-0 flex-1" aria-labelledby="page-heading">
+      <header class="flex flex-wrap items-center justify-between gap-4">
+        <h1 id="page-heading" class="font-heading text-4xl uppercase">Dashboard</h1>
+        <button id="refresh-btn" type="button" class="border border-gray-500 px-5 py-2 text-sm uppercase text-white">Refresh</button>
+      </header>
+      <p id="updated" class="mt-2 text-sm text-gray-300" aria-live="polite"></p>
+
+      <p id="load-error" role="alert" class="mt-6 hidden bg-red-900 px-4 py-3 text-sm">
+        <span id="error-text"></span>
+        <button id="retry-btn" type="button" class="ml-3 underline">Try again</button>
+      </p>
+
+      <ul id="stat-cards" class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-busy="true"></ul>
+
+      <section class="mt-10" aria-labelledby="growth-title">
+        <h2 id="growth-title" class="font-heading text-2xl uppercase">New users per month</h2>
+        <ul id="growth-chart" class="mt-4 space-y-3"></ul>
+      </section>
+
+      <section class="mt-10" aria-labelledby="events-title">
+        <h2 id="events-title" class="font-heading text-2xl uppercase">Events overview</h2>
+        <ul id="events-chart" class="mt-4 space-y-3"></ul>
+      </section>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>
