@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My profile | CivicEvents</title>
+  <link rel="icon" href="../img/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind-config.js"></script>
+</head>
+<body class="flex min-h-screen flex-col bg-neutral-950 font-body text-white">
+  <header id="navbar"></header>
+
+  <main id="main" class="mx-auto w-full max-w-md flex-1 px-6 py-12">
+    <h1 class="font-heading text-4xl uppercase">My profile</h1>
+
+    <p id="load-error" role="alert" class="mt-6 hidden bg-red-900 px-4 py-3 text-sm">
+      <span id="error-text"></span>
+      <button id="retry-btn" type="button" class="ml-3 underline">Try again</button>
+    </p>
+
+    <dl class="mt-8 grid grid-cols-2 gap-4 bg-neutral-900 p-4 text-sm">
+      <dt class="text-gray-300">Role</dt>
+      <dd id="role" class="font-bold capitalize"></dd>
+      <dt class="text-gray-300">Status</dt>
+      <dd id="status" class="font-bold"></dd>
+      <dt class="text-gray-300">Member since</dt>
+      <dd id="member-since" class="font-bold"></dd>
+    </dl>
+
+    <form id="profile-form" class="mt-8 space-y-5" novalidate>
+      <p id="form-error" role="alert" class="hidden bg-red-900 px-4 py-3 text-sm"></p>
+
+      <p>
+        <label for="full_name" class="block text-sm font-bold">Full name</label>
+        <input id="full_name" name="full_name" type="text" autocomplete="name" required class="mt-1 w-full bg-neutral-800 px-3 py-2 text-white">
+      </p>
+
+      <p>
+        <label for="email" class="block text-sm font-bold">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required class="mt-1 w-full bg-neutral-800 px-3 py-2 text-white">
+      </p>
+
+      <button id="save-btn" type="submit" class="bg-brand-dark px-6 py-3 text-sm font-bold uppercase text-white">Save changes</button>
+    </form>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/profile.js"></script>
+</body>
+</html>
