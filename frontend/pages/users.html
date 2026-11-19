@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Users | CivicEvents</title>
+  <link rel="icon" href="../img/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind-config.js"></script>
+</head>
+<body class="flex min-h-screen flex-col bg-neutral-950 font-body text-white">
+  <header id="navbar"></header>
+
+  <main id="main" class="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-8 px-6 py-12 md:flex-row">
+    <aside class="md:w-48 md:shrink-0">
+      <nav aria-label="Admin sections">
+        <ul id="admin-nav" class="flex flex-wrap gap-x-6 gap-y-2 md:flex-col"></ul>
+      </nav>
+    </aside>
+
+    <section class="min-w-0 flex-1" aria-labelledby="page-heading">
+      <h1 id="page-heading" class="font-heading text-4xl uppercase">Users</h1>
+      <p class="mt-2 text-sm text-gray-300">You can enable or disable accounts. Roles cannot be changed from here.</p>
+
+      <p id="load-error" role="alert" class="mt-6 hidden bg-red-900 px-4 py-3 text-sm">
+        <span id="error-text"></span>
+        <button id="retry-btn" type="button" class="ml-3 underline">Try again</button>
+      </p>
+
+      <figure class="mt-6 overflow-x-auto">
+        <table id="users-table" class="w-full text-left text-sm" aria-busy="true">
+          <caption class="sr-only">All registered users</caption>
+          <thead>
+            <tr class="border-b border-neutral-700 text-gray-300">
+              <th scope="col" class="px-3 py-2">Name</th>
+              <th scope="col" class="px-3 py-2">Email</th>
+              <th scope="col" class="px-3 py-2">Role</th>
+              <th scope="col" class="px-3 py-2">Status</th>
+              <th scope="col" class="px-3 py-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="users-body"></tbody>
+        </table>
+      </figure>
+
+      <nav id="pagination" class="mt-8 flex items-center justify-center gap-4" aria-label="Pagination"></nav>
+    </section>
+  </main>
+
+  <dialog id="user-dialog" aria-labelledby="dialog-title" class="m-auto w-full max-w-md bg-neutral-900 p-6 text-white backdrop:bg-black/70">
+    <h2 id="dialog-title" class="font-heading text-2xl uppercase"></h2>
+    <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
+      <dt class="text-gray-300">Email</dt>
+      <dd id="d-email" class="break-all font-bold"></dd>
+      <dt class="text-gray-300">Role</dt>
+      <dd id="d-role" class="font-bold capitalize"></dd>
+      <dt class="text-gray-300">Status</dt>
+      <dd id="d-status" class="font-bold"></dd>
+      <dt class="text-gray-300">Joined</dt>
+      <dd id="d-joined" class="font-bold"></dd>
+      <dt class="text-gray-300">Last updated</dt>
+      <dd id="d-updated" class="font-bold"></dd>
+    </dl>
+    <form method="dialog" class="mt-6">
+      <button type="submit" class="border border-gray-500 px-5 py-2 text-sm uppercase text-white">Close</button>
+    </form>
+  </dialog>
+
+  <footer id="footer"></footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/users.js"></script>
+</body>
+</html>
