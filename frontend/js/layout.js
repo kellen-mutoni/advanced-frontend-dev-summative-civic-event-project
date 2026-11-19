@@ -123,3 +123,16 @@ $(function () {
   renderNavbar();
   renderFooter();
 });
+
+function renderAdminNav() {
+  if ($("#admin-nav").length === 0) return;
+
+  const links = [["dashboard.html", "Dashboard"], ["users.html", "Users"], ["admin.html", "Admin panel"]];
+  $("#admin-nav").html(links.map(function (link) {
+    return navItem(link[0], link[1], "block py-1");
+  }).join(""));
+}
+
+$(function () {
+  renderAdminNav();
+});

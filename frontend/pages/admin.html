@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin panel | CivicEvents</title>
+  <link rel="icon" href="../img/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind-config.js"></script>
+</head>
+<body class="flex min-h-screen flex-col bg-neutral-950 font-body text-white">
+  <header id="navbar"></header>
+
+  <main id="main" class="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-8 px-6 py-12 md:flex-row">
+    <aside class="md:w-48 md:shrink-0">
+      <nav aria-label="Admin sections">
+        <ul id="admin-nav" class="flex flex-wrap gap-x-6 gap-y-2 md:flex-col"></ul>
+      </nav>
+    </aside>
+
+    <section class="min-w-0 flex-1" aria-labelledby="page-heading">
+      <h1 id="page-heading" class="font-heading text-4xl uppercase">Admin panel</h1>
+
+      <h2 class="mt-8 font-heading text-2xl uppercase">Quick actions</h2>
+      <ul class="mt-4 grid gap-4 sm:grid-cols-2">
+        <li><a href="event-form.html" class="block bg-neutral-900 p-4 hover:bg-neutral-800">New event</a></li>
+        <li><a href="announcement-form.html" class="block bg-neutral-900 p-4 hover:bg-neutral-800">New announcement</a></li>
+        <li><a href="promo-form.html" class="block bg-neutral-900 p-4 hover:bg-neutral-800">New promo</a></li>
+        <li><a href="notifications.html" class="block bg-neutral-900 p-4 hover:bg-neutral-800">Notifications inbox</a></li>
+      </ul>
+
+      <h2 class="mt-12 font-heading text-2xl uppercase">Delete a notification</h2>
+      <p class="mt-2 text-sm text-gray-300">Broadcast notifications are created automatically when an event, announcement or promo is published. Admins can only delete them here.</p>
+
+      <form id="delete-form" class="mt-4 space-y-4" novalidate>
+        <p id="form-error" role="alert" class="hidden bg-red-900 px-4 py-3 text-sm"></p>
+        <p>
+          <label for="notification-select" class="block text-sm font-bold">Notification</label>
+          <select id="notification-select" class="mt-1 w-full bg-neutral-800 px-3 py-2 text-white">
+            <option value="">Loading notifications...</option>
+          </select>
+        </p>
+        <button id="delete-btn" type="submit" class="border border-red-400 px-6 py-3 text-sm uppercase text-red-300">Delete notification</button>
+      </form>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>
