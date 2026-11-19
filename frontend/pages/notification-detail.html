@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notification | CivicEvents</title>
+  <link rel="icon" href="../img/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind-config.js"></script>
+</head>
+<body class="flex min-h-screen flex-col bg-neutral-950 font-body text-white">
+  <header id="navbar"></header>
+
+  <main id="main" class="mx-auto w-full max-w-2xl flex-1 px-6 py-12">
+    <p><a href="notifications.html" class="text-sm text-brand underline"><span aria-hidden="true">&larr;</span> Back to notifications</a></p>
+
+    <p id="load-error" role="alert" class="mt-6 hidden bg-red-900 px-4 py-3 text-sm">
+      <span id="error-text"></span>
+      <button id="retry-btn" type="button" class="ml-3 underline">Try again</button>
+    </p>
+
+    <p id="skeleton" class="mt-6 h-48 animate-pulse bg-neutral-800" aria-hidden="true"></p>
+
+    <article id="notification" class="mt-6 hidden">
+      <h1 id="title" class="font-heading text-4xl uppercase"></h1>
+      <p class="mt-2 text-sm capitalize text-gray-400"><span id="type"></span> &middot; <time id="created"></time></p>
+      <p id="message" class="mt-6 whitespace-pre-line text-gray-200"></p>
+      <p class="mt-8"><a id="related-link" class="hidden bg-brand-dark px-6 py-3 text-sm font-bold uppercase text-white"></a></p>
+    </article>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/notification-detail.js"></script>
+</body>
+</html>
