@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Announcement form | CivicEvents</title>
+  <link rel="icon" href="../img/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind-config.js"></script>
+</head>
+<body class="flex min-h-screen flex-col bg-neutral-950 font-body text-white">
+  <header id="navbar"></header>
+
+  <main id="main" class="mx-auto w-full max-w-2xl flex-1 px-6 py-12">
+    <h1 id="page-title" class="font-heading text-4xl uppercase">Announcement</h1>
+
+    <form id="announcement-form" class="mt-8 space-y-5" novalidate>
+      <p id="form-error" role="alert" class="hidden bg-red-900 px-4 py-3 text-sm"></p>
+
+      <p>
+        <label for="title" class="block text-sm font-bold">Title</label>
+        <input id="title" name="title" type="text" required class="mt-1 w-full bg-neutral-800 px-3 py-2 text-white">
+      </p>
+
+      <p id="audio-row">
+        <label for="audio" class="block text-sm font-bold">Audio file</label>
+        <input id="audio" name="audio" type="file" accept=".mp3,.wav,.m4a,.ogg" aria-describedby="audio-hint" class="mt-1 block w-full text-sm text-gray-300 file:mr-4 file:border-0 file:bg-neutral-700 file:px-4 file:py-2 file:text-white">
+      </p>
+      <p id="audio-hint" class="!mt-1 text-xs text-gray-300">MP3, WAV, M4A or OGG, up to 5 MB.</p>
+
+      <audio id="audio-preview" controls class="hidden w-full">
+        Your browser cannot play this audio file.
+      </audio>
+
+      <progress id="upload-progress" max="100" value="0" aria-label="Upload progress" class="hidden w-full"></progress>
+
+      <p id="published-row" class="flex items-center gap-2">
+        <input id="published" name="published" type="checkbox" checked class="h-4 w-4">
+        <label for="published" class="text-sm font-bold">Publish immediately</label>
+      </p>
+
+      <p id="edit-note" class="hidden text-sm text-gray-300">The audio file cannot be changed when editing. To use a different file, create a new announcement. Use Publish or Unpublish on the list page to change visibility.</p>
+
+      <p class="flex gap-4">
+        <button id="save-btn" type="submit" class="bg-brand-dark px-6 py-3 text-sm font-bold uppercase text-white">Save announcement</button>
+        <a href="announcements.html" class="border border-gray-500 px-6 py-3 text-sm uppercase text-white">Cancel</a>
+      </p>
+    </form>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/announcement-form.js"></script>
+</body>
+</html>
