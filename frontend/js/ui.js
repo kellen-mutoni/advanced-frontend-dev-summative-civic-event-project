@@ -38,3 +38,34 @@ function errorMessage(xhr) {
 function showFormError(message) {
   $("#form-error").text(message).removeClass("hidden");
 }
+
+function readKey() {
+  return "read-notifications-" + getUser().id;
+}
+
+function getReadIds() {
+  return JSON.parse(localStorage.getItem(readKey()) || "[]");
+}
+
+function markAsRead(ids) {
+  const all = getReadIds();
+  ids.forEach(function (id) {
+    if (!all.includes(id)) all.push(id);
+  });
+  localStorage.setItem(readKey(), JSON.stringify(all));
+  refreshBell();
+}
+
+function refreshBell() {
+  if (!getUser() || $("#notif-count").length === 0) return;
+
+  apiRequest("GET", "/api/notifications").done(function (res) {
+    const read = getReadIds();
+    const unread = res.data.filter(function (n) { return !read.includes(n.id); }).length;
+    $("#notif-count").text(unread > 0 ? "(" + unread + ")" : "");
+  });
+}
+
+$(function () {
+  refreshBell();
+});
