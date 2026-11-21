@@ -1,7 +1,3 @@
-function showFormError(message) {
-  $("#form-error").text(message).removeClass("hidden");
-}
-
 $("#login-form").on("submit", function (e) {
   e.preventDefault();
   $("#form-error").addClass("hidden");
@@ -22,8 +18,7 @@ $("#login-form").on("submit", function (e) {
       window.location.href = response.data.user.role === "admin" ? "dashboard.html" : "events.html";
     })
     .fail(function (xhr) {
-      const message = xhr.responseJSON ? xhr.responseJSON.message : "Cannot reach the server. Check your connection and try again.";
-      showFormError(message);
+      showFormError(errorMessage(xhr));
       button.prop("disabled", false).text("Log in");
     });
 });

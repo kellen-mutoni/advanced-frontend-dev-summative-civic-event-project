@@ -7,10 +7,6 @@ function passwordScore(password) {
   return score;
 }
 
-function showFormError(message) {
-  $("#form-error").text(message).removeClass("hidden");
-}
-
 $("#password").on("input", function () {
   const score = passwordScore($(this).val());
   const words = ["", "Weak", "Fair", "Good", "Strong"];
@@ -52,9 +48,7 @@ $("#signup-form").on("submit", function (e) {
       window.location.href = "login.html";
     })
     .fail(function (xhr) {
-      // No responseJSON means the server never answered
-      const message = xhr.responseJSON ? xhr.responseJSON.message : "Cannot reach the server. Check your connection and try again.";
-      showFormError(message);
+      showFormError(errorMessage(xhr));
       button.prop("disabled", false).text("Sign up");
     });
 });
