@@ -115,7 +115,7 @@ function renderEvents() {
 
   $("#events-list").attr("aria-busy", "false").html(shown.map(cardHtml).join(""));
   $("#empty-state").toggleClass("hidden", filteredEvents.length > 0);
-  $("#results-info").text(filteredEvents.length > 0 ? `Showing ${shown.length} of ${filteredEvents.length} events` : "");
+  $("#results-info").text(filteredEvents.length > 0 ? `Showing ${shown.length} of ${filteredEvents.length} event${filteredEvents.length === 1 ? "" : "s"}` : "");
   renderPagination(totalPages);
 }
 
