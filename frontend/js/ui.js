@@ -4,8 +4,9 @@ $(function () {
   // A message saved before a redirect is shown here, on the next page
   const saved = sessionStorage.getItem("toast");
   if (saved) {
-    showToast(saved);
+        showToast(saved, sessionStorage.getItem("toast-type") || "success");
     sessionStorage.removeItem("toast");
+    sessionStorage.removeItem("toast-type");
   }
 });
 

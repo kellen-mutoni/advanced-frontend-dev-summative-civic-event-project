@@ -29,8 +29,11 @@ function apiRequest(method, path, data, onProgress) {
     },
   }).fail(function (xhr) {
     // An expired token comes back as 401, so we log the user out and send them to login
-    if (xhr.status === 401 && getToken()) {
+    // Login and signup are skipped here, because a wrong password also gives a 401
+    if (xhr.status === 401 && getToken() && !path.startsWith("/api/auth/")) {
       clearSession();
+      sessionStorage.setItem("toast", "Your session expired. Please log in again.");
+      sessionStorage.setItem("toast-type", "error");
       window.location.href = "login.html";
     }
   });
