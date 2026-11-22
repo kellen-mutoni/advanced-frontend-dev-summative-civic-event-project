@@ -3,6 +3,7 @@
 function saveSession(token, user) {
   localStorage.setItem("token", token);
   localStorage.setItem("user", JSON.stringify(user));
+  sessionStorage.removeItem("promos-cache");
 }
 
 function getToken() {
@@ -16,6 +17,7 @@ function getUser() {
 function clearSession() {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
+  sessionStorage.removeItem("promos-cache");
 }
 
 // Role guard: a visitor who is not logged in is sent to the login page
