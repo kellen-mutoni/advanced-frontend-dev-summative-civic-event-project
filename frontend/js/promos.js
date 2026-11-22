@@ -2,7 +2,7 @@ requireLogin();
 
 const isAdmin = getUser().role === "admin";
 const CACHE_KEY = "promos-cache";
-const CACHE_MINUTES = 2;
+const CACHE_MINUTES = 1;
 
 const lazyVideos = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
