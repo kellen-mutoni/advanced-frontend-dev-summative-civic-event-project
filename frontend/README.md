@@ -41,3 +41,10 @@ The real security is in the backend. The frontend only hides buttons and redirec
 - `js/layout.js`: the Admin and Dashboard links in the navbar only show for admins
 - `js/events.js`, `js/announcements.js`, `js/promos.js`, `js/event-detail.js`: Edit, Delete and Create buttons only show for admins, and Register only shows for normal users
 - `js/api.js`: a 401 error logs the user out, and a 403 error tells them to contact an admin
+
+## Notes about the backend
+
+- Events have no publish switch, because the backend ignores it for events.
+- Only admins can see all the feedback and the average rating.
+- Notifications cannot be created or marked as read in the backend, so "read" is saved in the browser.
+- The backend does not block disabled users, so the login page checks the account status and stops them.
