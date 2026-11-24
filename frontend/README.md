@@ -1,3 +1,5 @@
+Demo video: https://youtu.be/5Y_KaMpLVDg
+
 # CivicEvents Frontend
 
 This is the frontend for the CivicEvents project. It is a website for city events where an admin manages the content and normal users can browse and join events. I built it with HTML, Tailwind CSS and jQuery. The backend API was already provided, so this project only has the pages and the code that talks to it.
